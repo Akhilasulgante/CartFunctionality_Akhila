@@ -1,6 +1,6 @@
 import minimongo from "minimongo";
 
-// export default function CartDB(dbName = "cart") {
+// export default function CartDB(dbName = "Shopping_cart") {
 //   const IndexedDb = minimongo.IndexedDb;
 
 //   const dbcart = {};
@@ -61,7 +61,7 @@ import minimongo from "minimongo";
 //   return dbcart;
 // }
 
-const getProduct = (dbName = "cart") => {
+const getProduct = (dbName = "Shopping_cart") => {
   return new Promise((resolve, reject) => {
     const db = new minimongo.IndexedDb(
       { namespace: dbName },
@@ -69,7 +69,7 @@ const getProduct = (dbName = "cart") => {
         db.addCollection(
           "cart",
           function () {
-            db.ideas.find({}).fetch(resolve, reject);
+            db.cart.find({}).fetch(resolve, reject);
           },
           reject
         );
@@ -79,7 +79,7 @@ const getProduct = (dbName = "cart") => {
   });
 };
 
-const removeProduct = (productToDelete, dbName = "cart") => {
+const removeProduct = (productToDelete, dbName = "Shopping_cart") => {
   return new Promise((resolve, reject) => {
     const db = new minimongo.IndexedDb(
       { namespace: dbName },
@@ -87,7 +87,7 @@ const removeProduct = (productToDelete, dbName = "cart") => {
         db.addCollection(
           "cart",
           function () {
-            db.ideas.remove(productToDelete, resolve, reject);
+            db.cart.remove(productToDelete, resolve, reject);
           },
           reject
         );
@@ -97,15 +97,16 @@ const removeProduct = (productToDelete, dbName = "cart") => {
   });
 };
 
-const addProduct = (newProduct, dbName = "cart") => {
+const addProductToDb = (newProduct, dbName = "Shopping_cart") => {
   return new Promise((resolve, reject) => {
     const db = new minimongo.IndexedDb(
       { namespace: dbName },
       function () {
+        console.log("db is", db);
         db.addCollection(
           "cart",
           function () {
-            db.ideas.upsert(newProduct, resolve, reject);
+            db.cart.upsert(newProduct, resolve, reject);
           },
           reject
         );
@@ -115,4 +116,4 @@ const addProduct = (newProduct, dbName = "cart") => {
   });
 };
 
-export { addProduct, removeProduct, getProduct };
+export { addProductToDb, removeProduct, getProduct };
