@@ -1,7 +1,8 @@
 import "./App.css";
+import Shopping from "../src/Pages/Shopping";
 
 function App() {
-  return <p>hi</p>;
+  return <Shopping></Shopping>;
 }
 
 export default App;

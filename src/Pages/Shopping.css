@@ -1,0 +1,16 @@
+.page-left {
+  background-color: goldenrod;
+  display: flex;
+  width: 70%;
+}
+
+.page-right {
+  background-color: blueviolet;
+  display: flex;
+  width: 30%;
+}
+
+.page {
+  display: flex;
+  justify-content: space-around;
+}
