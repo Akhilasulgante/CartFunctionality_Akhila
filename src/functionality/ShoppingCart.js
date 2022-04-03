@@ -21,9 +21,6 @@ const ShoppingCart = ({ cartProducts, setCartProducts }) => {
   return (
     <div className="ShoppingCart">
       <h2>Shopping Cart</h2>
-      <label>
-        Total <output>{0}</output>
-      </label>
       {/* {productsInCart.size ? (
         renderProductsInCart()
       ) : (

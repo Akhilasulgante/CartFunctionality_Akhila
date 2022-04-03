@@ -5,7 +5,7 @@ import ProductList from "../functionality/ProductList";
 import "./Shopping.css";
 import ReactPaginate from "react-paginate";
 
-const Shopping = ({ dbcart }) => {
+const Shopping = ({ dbcart, pm }) => {
   const [products, setProducts] = useState([
     {
       id: "1",
@@ -67,30 +67,17 @@ const Shopping = ({ dbcart }) => {
 
   const [cartProducts, setCartProducts] = useState([]);
 
-  async function reloadPage() {
-    let dbProduct = await dbcart.getProducts();
-
-    setProducts([...dbProduct]);
-  }
-
-  useEffect(() => {
-    reloadPage();
-
-    return () => {
-      console.log("The component was destroyed");
-    };
-  }, []);
-
   async function onAddProduct(newProduct) {
-    console.log("On Create Idea");
-    await dbcart.createIdea(newProduct);
-    await reloadPage();
+    console.log("On Create product");
+    await pm.addProduct(newProduct);
+    // await dbcart.createIdea(newProduct);
+    // await reloadPage();
   }
 
   async function onDeleteProduct(DeleteProduct) {
-    console.log("On Delete Idea");
-    await dbcart.removeIdea(DeleteProduct);
-    await reloadPage();
+    // console.log("On Delete product");
+    // await dbcart.removeIdea(DeleteProduct);
+    // await reloadPage();
   }
 
   return (
@@ -101,6 +88,7 @@ const Shopping = ({ dbcart }) => {
             products={products}
             cartProducts={cartProducts}
             setCartProducts={setCartProducts}
+            pm={pm}
           ></ProductList>
         </div>
         <div className="page-right">
@@ -108,6 +96,7 @@ const Shopping = ({ dbcart }) => {
             productsInCart={onAddProduct}
             cartProducts={cartProducts}
             setCartProducts={setCartProducts}
+            pm={pm}
           ></ShoppingCart>
         </div>
       </div>

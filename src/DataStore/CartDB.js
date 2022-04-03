@@ -41,5 +41,22 @@ export default function CartDB(dbName = "cart") {
     });
   };
 
+  dbcart.addProduct = function (newProduct) {
+    return new Promise((resolve, reject) => {
+      const db = new IndexedDb(
+        { namespace: dbName },
+        function () {
+          db.addCollection(
+            "cart",
+            function () {
+              db.ideas.upsert(newProduct, resolve, reject);
+            },
+            reject
+          );
+        },
+        reject
+      );
+    });
+  };
   return dbcart;
 }
