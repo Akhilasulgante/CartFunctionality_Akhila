@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import PropTypes from "prop-types";
 import ReactPaginate from "react-paginate";
-import { addProductToDb } from "../DataStore/CartDB";
+import { addProductToDb, getProduct } from "../DataStore/CartDB";
 
 const Product = ({ product, addProduct, cartProducts, setCartProducts }) => {
   const [pageNumber, setPageNumber] = useState(0);
@@ -27,7 +27,11 @@ const Product = ({ product, addProduct, cartProducts, setCartProducts }) => {
               console.log("the added product is", product);
               setCartProducts([...cartProducts, product]);
 
-              await addProductToDb(product, "cart");
+              await addProductToDb(product, "Shopping_cart");
+
+              getProduct("Shopping_cart", (cart) => {
+                setCartProducts(cart);
+              });
             }}
           >
             Add to Cart
@@ -53,9 +57,9 @@ const Product = ({ product, addProduct, cartProducts, setCartProducts }) => {
   );
 };
 
-Product.propTypes = {
-  product: PropTypes.object.isRequired,
-  addProduct: PropTypes.func.isRequired,
-};
+// Product.propTypes = {
+//   product: PropTypes.object.isRequired,
+//   addProduct: PropTypes.func.isRequired,
+// };
 
 export default Product;

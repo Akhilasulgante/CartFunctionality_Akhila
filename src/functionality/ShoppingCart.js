@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import "./ShoppingCart.css";
+import { getProduct } from "../DataStore/CartDB";
 
 const ShoppingCart = ({ cartProducts, setCartProducts }) => {
+  console.log("my data in cart is", cartProducts);
   // function renderProductsInCart() {
   //   return (
   //     <span>
@@ -18,6 +20,16 @@ const ShoppingCart = ({ cartProducts, setCartProducts }) => {
   //   );
   // }
 
+  async function getMyCartProducts() {
+    let products = await getProduct("Shopping_cart");
+    console.log("the fecthed products aree", products);
+    setCartProducts(cartProducts);
+  }
+
+  useEffect(() => {
+    getMyCartProducts();
+  }, []);
+
   return (
     <div className="ShoppingCart">
       <h2>Shopping Cart</h2>
@@ -26,7 +38,7 @@ const ShoppingCart = ({ cartProducts, setCartProducts }) => {
       ) : (
         <div>No products in cart yet</div>
       )} */}
-      {cartProducts &&
+      {cartProducts.length > 0 &&
         cartProducts.map((e) => {
           return (
             <div className="shopping-cart">
@@ -56,8 +68,8 @@ const ShoppingCart = ({ cartProducts, setCartProducts }) => {
   );
 };
 
-ShoppingCart.propTypes = {
-  productsInCart: PropTypes.object.isRequired,
-};
+// ShoppingCart.propTypes = {
+//   productsInCart: PropTypes.object.isRequired,
+// };
 
 export default ShoppingCart;

@@ -61,7 +61,7 @@ import minimongo from "minimongo";
 //   return dbcart;
 // }
 
-const getProduct = (dbName = "Shopping_cart") => {
+const getProduct = (dbName = "Shopping_cart", productCbk) => {
   return new Promise((resolve, reject) => {
     const db = new minimongo.IndexedDb(
       { namespace: dbName },
@@ -69,7 +69,9 @@ const getProduct = (dbName = "Shopping_cart") => {
         db.addCollection(
           "cart",
           function () {
-            db.cart.find({}).fetch(resolve, reject);
+            db.cart.find({}).fetch(function (products, err) {
+              productCbk(products);
+            });
           },
           reject
         );

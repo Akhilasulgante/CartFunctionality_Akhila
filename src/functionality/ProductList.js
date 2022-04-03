@@ -27,9 +27,9 @@ const ProductList = ({
   );
 };
 
-ProductList.propTypes = {
-  products: PropTypes.array.isRequired,
-  addProduct: PropTypes.func.isRequired,
-};
+// ProductList.propTypes = {
+//   products: PropTypes.array.isRequired,
+//   addProduct: PropTypes.func.isRequired,
+// };
 
 export default ProductList;
