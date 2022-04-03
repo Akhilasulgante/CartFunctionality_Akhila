@@ -8,7 +8,6 @@ const ProductList = ({
   addProduct,
   cartProducts,
   setCartProducts,
-  pm,
 }) => {
   return (
     <div>
@@ -21,7 +20,6 @@ const ProductList = ({
             addProduct={addProduct}
             setCartProducts={setCartProducts}
             cartProducts={cartProducts}
-            pm={pm}
           ></Product>
         ))}
       </div>

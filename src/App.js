@@ -3,9 +3,7 @@ import Shopping from "../src/Pages/Shopping";
 import CartDB from "./DataStore/CartDB";
 
 function App() {
-  const pm = new CartDB("abc");
-
-  return <Shopping pm={pm}></Shopping>;
+  return <Shopping></Shopping>;
 }
 
 export default App;
