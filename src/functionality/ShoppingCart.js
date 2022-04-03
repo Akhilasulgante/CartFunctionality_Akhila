@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import "./ShoppingCart.css";
-import { getProduct } from "../DataStore/CartDB";
+import { getProduct, removeProduct } from "../DataStore/CartDB";
 
 const ShoppingCart = ({ cartProducts, setCartProducts }) => {
   console.log("my data in cart is", cartProducts);
@@ -51,11 +51,16 @@ const ShoppingCart = ({ cartProducts, setCartProducts }) => {
 
               <div>
                 <button
-                  onClick={() => {
-                    console.log("my products are", cartProducts);
-                    let arr = cartProducts;
-                    arr = (arr || []).filter((elem) => elem.id !== e.id);
-                    setCartProducts(arr);
+                  onClick={async () => {
+                    // console.log("my products are", cartProducts);
+                    // let arr = cartProducts;
+                    // arr = (arr || []).filter((elem) => elem.id !== e.id);
+                    // setCartProducts(arr);
+
+                    await removeProduct(e, "Shopping_cart");
+                    await getProduct("Shopping_cart", (cart) => {
+                      setCartProducts(cart);
+                    });
                   }}
                 >
                   Delete
