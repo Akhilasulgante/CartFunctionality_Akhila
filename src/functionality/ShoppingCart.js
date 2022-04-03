@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./ShoppingCart.css";
 
 const ShoppingCart = ({ cartProducts, setCartProducts }) => {
   // function renderProductsInCart() {
@@ -28,6 +29,32 @@ const ShoppingCart = ({ cartProducts, setCartProducts }) => {
       ) : (
         <div>No products in cart yet</div>
       )} */}
+      {cartProducts &&
+        cartProducts.map((e) => {
+          return (
+            <div className="shopping-cart">
+              <div>
+                <p>{e.name}</p>
+              </div>
+              <div className="cart-price">
+                <p>${e.price}</p>
+              </div>
+
+              <div>
+                <button
+                  onClick={() => {
+                    console.log("my products are", cartProducts);
+                    let arr = cartProducts;
+                    arr = (arr || []).filter((elem) => elem.id !== e.id);
+                    setCartProducts(arr);
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          );
+        })}
     </div>
   );
 };

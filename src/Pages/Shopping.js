@@ -97,7 +97,11 @@ const Shopping = ({ dbcart }) => {
     <div>
       <div className="page">
         <div className="page-left">
-          <ProductList products={products}></ProductList>
+          <ProductList
+            products={products}
+            cartProducts={cartProducts}
+            setCartProducts={setCartProducts}
+          ></ProductList>
         </div>
         <div className="page-right">
           <ShoppingCart

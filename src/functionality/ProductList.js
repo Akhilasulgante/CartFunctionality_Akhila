@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 import ReactPaginate from "react-paginate";
 import Product from "./Product.js";
 
-const ProductList = ({ products, addProduct }) => {
+const ProductList = ({
+  products,
+  addProduct,
+  cartProducts,
+  setCartProducts,
+}) => {
   return (
     <div>
       <h2>Products</h2>
@@ -13,6 +18,8 @@ const ProductList = ({ products, addProduct }) => {
             key={"product" + i}
             product={p}
             addProduct={addProduct}
+            setCartProducts={setCartProducts}
+            cartProducts={cartProducts}
           ></Product>
         ))}
       </div>

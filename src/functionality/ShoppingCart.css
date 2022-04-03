@@ -1,0 +1,10 @@
+.shopping-cart {
+  display: flex;
+  flex-direction: row;
+  background-color: brown;
+  margin-bottom: 1rem;
+}
+
+.cart-price {
+  margin-left: 2rem;
+}

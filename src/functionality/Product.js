@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import PropTypes from "prop-types";
 import ReactPaginate from "react-paginate";
 
-const Product = ({ product, addProduct }) => {
+const Product = ({ product, addProduct, cartProducts, setCartProducts }) => {
   const [pageNumber, setPageNumber] = useState(0);
 
   const ProductsPerPage = 3;
@@ -34,7 +34,14 @@ const Product = ({ product, addProduct }) => {
           <output>{product.name}</output>
           <output> (${product.price})</output>
 
-          <button onClick={() => addProduct(product)}>Add to Cart</button>
+          <button
+            onClick={() => {
+              console.log("the added product is", product);
+              setCartProducts([...cartProducts, product]);
+            }}
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
       {/* <div>
