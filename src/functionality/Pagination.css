@@ -1,0 +1,36 @@
+.pagination-body {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+
+.page-item {
+  list-style: none;
+  padding: 2rem;
+}
+
+.current-page {
+  list-style: none;
+  padding: 2rem;
+  font-weight: 800;
+  color: azure;
+}
+
+.pagination-link {
+  color: #000;
+}
+
+.pagination-link-current {
+  color: #fff;
+}
+
+.pagination-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.pagination-btn {
+  width: 5rem;
+  height: 2rem;
+  margin-top: 2.5rem;
+}

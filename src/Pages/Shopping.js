@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import ShoppingCart from "../functionality/ShoppingCart";
 import ProductList from "../functionality/ProductList";
 import "./Shopping.css";
-import ReactPaginate from "react-paginate";
 import { getProduct } from "../DataStore/CartDB";
 
 const Shopping = ({ dbcart }) => {
@@ -86,28 +84,11 @@ const Shopping = ({ dbcart }) => {
         </div>
         <div className="page-right">
           <ShoppingCart
-            // productsInCart={onAddProduct}
             cartProducts={cartProducts}
             setCartProducts={setCartProducts}
           ></ShoppingCart>
         </div>
       </div>
-      <div>
-        <div>
-          <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
-            pageCount={0}
-            onPageChange={0}
-            containerClassName={"paginationBttns"}
-            previousLinkClassName={"previousBttn"}
-            nextLinkClassName={"nextBttn"}
-            disabledClassName={"paginationDisabled"}
-            activeClassName={"paginationActive"}
-          />
-        </div>
-      </div>
-      ;
     </div>
   );
 };
