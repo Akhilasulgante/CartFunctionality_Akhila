@@ -51,7 +51,7 @@ const Pagination = ({
       <button
         className="pagination-btn"
         onClick={() => {
-          if (currentPage !== 3) {
+          if (currentPage < Math.ceil(totalProducts.length / productPerPage)) {
             paginate(currentPage + 1);
           }
         }}

@@ -1,6 +1,6 @@
 .product-body {
   background-color: rgb(204, 130, 130);
-  width: 40rem;
+  width: 80rem;
   height: 5rem;
   margin-bottom: 3rem;
   display: flex;
@@ -10,6 +10,7 @@
 .product-title {
   color: #fff;
   font-weight: 800;
+  width: 20rem;
 }
 
 .product-price {
@@ -32,4 +33,8 @@
   margin-top: 1rem;
   margin-left: 28rem;
   width: 5rem;
+}
+
+.prod {
+  width: 20rem;
 }

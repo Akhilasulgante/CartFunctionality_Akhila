@@ -5,11 +5,11 @@ import "./Product.css";
 const Product = ({ product, addProduct, cartProducts, setCartProducts }) => {
   return (
     <div className="product-body">
-      <div>
+      <div className="prod">
         <output className="product-title">{product.name}</output>
         <div className="price">
           <output className="product-price-label">Price:</output>
-          <output className="product-price"> ${product.price}</output>
+          <output className="product-price"> {product.price}</output>
         </div>
       </div>
 
