@@ -1,0 +1,35 @@
+.product-body {
+  background-color: rgb(204, 130, 130);
+  width: 40rem;
+  height: 5rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.product-title {
+  color: #fff;
+  font-weight: 800;
+}
+
+.product-price {
+  color: #fff;
+  font-weight: 500;
+}
+
+.product-price-label {
+  font-weight: 300;
+  color: #fff;
+  margin-top: 2rem;
+}
+
+.price {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.add-to-cart {
+  margin-top: 1rem;
+  margin-left: 28rem;
+  width: 5rem;
+}

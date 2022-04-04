@@ -49,8 +49,9 @@ const ShoppingCart = ({ cartProducts, setCartProducts }) => {
                 <p>${e.price}</p>
               </div>
 
-              <div>
+              <div className="delete-btn">
                 <button
+                  className=""
                   onClick={async () => {
                     // console.log("my products are", cartProducts);
                     // let arr = cartProducts;

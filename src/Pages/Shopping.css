@@ -1,11 +1,11 @@
 .page-left {
-  background-color: goldenrod;
+  background-color: rgb(225, 218, 198);
   display: flex;
   width: 70%;
 }
 
 .page-right {
-  background-color: blueviolet;
+  background-color: rgb(184, 166, 201);
   display: flex;
   width: 30%;
 }
